@@ -1045,3 +1045,213 @@ max          2400.00     1199.00    2099.00   404.00        3.00
 2026-07-15 18:23:07 | INFO | BI | Task 5. PREPARE DATASETS.........
 2026-07-15 18:23:07 | INFO | BI | Preparing customers data
 2026-07-15 18:23:07 | INFO | BI | Customers Prep 1. Normalize Region values
+2026-07-15 18:27:28 | INFO | BI | === RUN START ===
+2026-07-15 18:27:28 | INFO | BI | project=BI
+2026-07-15 18:27:28 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-15 18:27:28 | INFO | BI | python=3.14.6
+2026-07-15 18:27:28 | INFO | BI | os=Windows 11
+2026-07-15 18:27:28 | INFO | BI | shell=powershell
+2026-07-15 18:27:28 | INFO | BI | cwd=.
+2026-07-15 18:27:28 | INFO | BI | github_actions=False
+2026-07-15 18:27:28 | INFO | BI | ========================
+2026-07-15 18:27:28 | INFO | BI | START main()
+2026-07-15 18:27:28 | INFO | BI | ========================
+2026-07-15 18:27:28 | INFO | BI | Raw data:      = data\raw
+2026-07-15 18:27:28 | INFO | BI | Prepared data: = data\prepared
+2026-07-15 18:27:28 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-15 18:27:28 | INFO | BI | Loading customers from data\raw\customers_data.csv
+2026-07-15 18:27:28 | INFO | BI | Loaded: 201 rows, 6 columns
+2026-07-15 18:27:28 | INFO | BI | Loading products from data\raw\products_data.csv
+2026-07-15 18:27:28 | INFO | BI | Loaded: 100 rows, 6 columns
+2026-07-15 18:27:28 | INFO | BI | Loading sales from data\raw\sales_data.csv
+2026-07-15 18:27:28 | INFO | BI | Loaded: 2400 rows, 9 columns
+2026-07-15 18:27:28 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-15 18:27:28 | INFO | BI | Inspecting customers
+2026-07-15 18:27:28 | INFO | BI |   Columns: ['CustomerID', 'Name', 'Region', 'JoinDate', 'RewardPoints', 'RewardLevel']
+2026-07-15 18:27:28 | INFO | BI |   Shape:   201 rows x 6 columns
+2026-07-15 18:27:28 | DEBUG | BI | 
+   CustomerID             Name   Region   JoinDate  RewardPoints RewardLevel
+0        1065     Daniel Adams  Central   7/2/2023          2296      Bronze
+1        1055  William Benitez     east  11/4/2020          8211      Bronze
+2        1161      David Ellis     East   1/2/2023          9512      Bronze
+3        1154  Edward Castillo    North  10/1/2020          9809      Bronze
+4        1193       Nancy King    South  5/23/2022         13669      Bronze
+
+2026-07-15 18:27:28 | INFO | BI | Inspecting products
+2026-07-15 18:27:28 | INFO | BI |   Columns: ['ProductID', 'ProductName', 'Category', 'UnitPrice', 'Supplier', 'SupplierID']
+2026-07-15 18:27:28 | INFO | BI |   Shape:   100 rows x 6 columns
+2026-07-15 18:27:28 | DEBUG | BI | 
+   ProductID            ProductName     Category  UnitPrice Supplier  SupplierID
+0       2076        Clothing-Affect     Clothing     806.07   Adidas        1001
+1       2014           Clothing-Eat     Clothing     246.30   Adidas        1001
+2       2021         Clothing-Skill     Clothing     835.41   Adidas        1001
+3       2036  Electronics-Candidate  Electronics     217.98     Bose        1002
+4       2059      Electronics-Clear  Electronics     512.05     Bose        5555
+
+2026-07-15 18:27:28 | INFO | BI | Inspecting sales
+2026-07-15 18:27:28 | INFO | BI |   Columns: ['TransactionID', 'SaleDate', 'CustomerID', 'ProductID', 'StoreID', 'CampaignID', 'SaleAmount', 'SaleType', 'EarnedRewardPoints']
+2026-07-15 18:27:28 | INFO | BI |   Shape:   2400 rows x 9 columns
+2026-07-15 18:27:28 | DEBUG | BI | 
+   TransactionID   SaleDate  CustomerID  ProductID  StoreID  CampaignID SaleAmount SaleType EarnedRewardPoints
+0           1101   6/7/2024        1020       2091      404         1.0    4252.36  Payment             425236
+1           1102  6/11/2024        1066       2097      404         2.0    3636.18  Payment             363618
+2            431  6/19/2024        1058       2061      404         0.0     546.31  Payment              54631
+3           1094  6/20/2024        1151       2039      402         2.0    2204.78  Payment             220478
+4            645  6/21/2024        1163       2065      402         1.0    1217.59  Payment             121759
+
+2026-07-15 18:27:28 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-15 18:27:28 | INFO | BI | Quality check: customers
+2026-07-15 18:27:28 | INFO | BI |   Total missing values: 4
+2026-07-15 18:27:28 | WARNING | BI |   Missing by column:
+RewardLevel    4
+dtype: int64
+2026-07-15 18:27:28 | INFO | BI |   Duplicate rows: 0
+2026-07-15 18:27:28 | INFO | BI | Quality check: products
+2026-07-15 18:27:28 | INFO | BI |   Total missing values: 1
+2026-07-15 18:27:28 | WARNING | BI |   Missing by column:
+Supplier    1
+dtype: int64
+2026-07-15 18:27:28 | INFO | BI |   Duplicate rows: 0
+2026-07-15 18:27:28 | INFO | BI | Quality check: sales
+2026-07-15 18:27:28 | INFO | BI |   Total missing values: 201
+2026-07-15 18:27:28 | WARNING | BI |   Missing by column:
+CampaignID            193
+SaleType                5
+EarnedRewardPoints      3
+dtype: int64
+2026-07-15 18:27:28 | INFO | BI |   Duplicate rows: 0
+2026-07-15 18:27:28 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-15 18:27:28 | INFO | BI | Numeric summary: customers
+2026-07-15 18:27:28 | INFO | BI | 
+       CustomerID  RewardPoints
+count      201.00        201.00
+mean      1099.03     213166.62
+std         58.12     115975.15
+min       1000.00       2296.00
+25%       1049.00     115318.00
+50%       1099.00     214088.00
+75%       1149.00     313194.00
+max       1199.00     461774.00
+2026-07-15 18:27:28 | INFO | BI | Numeric summary: products
+2026-07-15 18:27:28 | INFO | BI | 
+       ProductID  UnitPrice  SupplierID
+count     100.00     100.00      100.00
+mean     2049.50     507.77     1056.76
+std        29.01     290.80      454.48
+min      2000.00      13.51     1001.00
+25%      2024.75     255.53     1006.00
+50%      2049.50     496.39     1011.50
+75%      2074.25     771.28     1015.00
+max      2099.00     976.44     5555.00
+2026-07-15 18:27:28 | INFO | BI | Numeric summary: sales
+2026-07-15 18:27:28 | INFO | BI | 
+       TransactionID  CustomerID  ProductID  StoreID  CampaignID
+count        2400.00     2400.00    2400.00  2400.00     2207.00
+mean         1200.50     1086.75    2049.07   402.53        1.46
+std           692.96       57.32      28.67     1.13        1.12
+min             1.00     1000.00    2000.00   401.00        0.00
+25%           600.75     1034.00    2023.00   402.00        0.00
+50%          1200.50     1079.00    2046.00   403.00        1.00
+75%          1800.25     1132.00    2074.00   404.00        2.00
+max          2400.00     1199.00    2099.00   404.00        3.00
+2026-07-15 18:27:28 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-15 18:27:28 | INFO | BI | Preparing customers data
+2026-07-15 18:27:28 | INFO | BI | Customers Prep 1. Normalize Region values
+2026-07-15 18:27:28 | INFO | BI |   Regions after normalization: ['Central', 'East', 'North', 'South', 'South-West', 'West']
+2026-07-15 18:27:28 | INFO | BI | Customers Prep 2. Remove duplicate rows
+2026-07-15 18:27:28 | INFO | BI |   Rows before: 201
+2026-07-15 18:27:28 | INFO | BI |   Rows after: 201
+2026-07-15 18:27:28 | INFO | BI |   Removed 0 duplicate row(s)
+2026-07-15 18:27:28 | INFO | BI |   Customers prepared: 201 rows
+2026-07-15 18:27:28 | INFO | BI | Preparing products data
+2026-07-15 18:27:28 | INFO | BI | Products Prep 1. Convert UnitPrice to numeric
+2026-07-15 18:27:28 | INFO | BI |   Non-numeric prices replaced with NaN: 0
+2026-07-15 18:27:28 | INFO | BI | Products Prep 2. Remove duplicate rows
+2026-07-15 18:27:28 | INFO | BI |   Rows before: 100
+2026-07-15 18:27:28 | INFO | BI |   Rows after: 100
+2026-07-15 18:27:28 | INFO | BI |   Removed 0 duplicate row(s)
+2026-07-15 18:27:28 | INFO | BI |   Products prepared: 100 rows
+2026-07-15 18:27:28 | INFO | BI | Preparing sales data
+2026-07-15 18:27:28 | INFO | BI | Sales Prep 1. Convert SaleDate to datetime
+2026-07-15 18:27:28 | INFO | BI | Sales Prep 2. Convert SaleAmount to numeric
+2026-07-15 18:27:28 | WARNING | BI |   8 row(s) with invalid SaleAmount - will be removed
+2026-07-15 18:27:28 | INFO | BI | Sales Prep 3. Remove rows with missing date or amount
+2026-07-15 18:27:28 | INFO | BI |   Rows before: 2400
+2026-07-15 18:27:28 | INFO | BI |   Rows after: 2392
+2026-07-15 18:27:28 | INFO | BI |   Removed 8 row(s) with missing date or amount
+2026-07-15 18:27:28 | INFO | BI | Sales Prep 4. Check CustomerID foreign key integrity
+2026-07-15 18:27:28 | INFO | BI | Sales Prep 5. Check ProductID foreign key integrity
+2026-07-15 18:27:28 | INFO | BI | Sales Prep 6. Remove duplicate rows
+2026-07-15 18:27:29 | INFO | BI |   Rows before: 2392
+2026-07-15 18:27:29 | INFO | BI |   Rows after: 2392
+2026-07-15 18:27:29 | INFO | BI |   Removed 0 duplicate row(s)
+2026-07-15 18:27:29 | INFO | BI |   Sales prepared: 2392 rows
+2026-07-15 18:27:29 | INFO | BI | Task 6. CHECK QUALITY AFTER PREPARATION........
+2026-07-15 18:27:29 | INFO | BI | Quality check: customers prepared
+2026-07-15 18:27:29 | INFO | BI |   Total missing values: 4
+2026-07-15 18:27:29 | WARNING | BI |   Missing by column:
+RewardLevel    4
+dtype: int64
+2026-07-15 18:27:29 | INFO | BI |   Duplicate rows: 0
+2026-07-15 18:27:29 | INFO | BI | Quality check: products prepared
+2026-07-15 18:27:29 | INFO | BI |   Total missing values: 1
+2026-07-15 18:27:29 | WARNING | BI |   Missing by column:
+Supplier    1
+dtype: int64
+2026-07-15 18:27:29 | INFO | BI |   Duplicate rows: 0
+2026-07-15 18:27:29 | INFO | BI | Quality check: sales prepared
+2026-07-15 18:27:29 | INFO | BI |   Total missing values: 201
+2026-07-15 18:27:29 | WARNING | BI |   Missing by column:
+CampaignID            193
+SaleType                5
+EarnedRewardPoints      3
+dtype: int64
+2026-07-15 18:27:29 | INFO | BI |   Duplicate rows: 0
+2026-07-15 18:27:29 | INFO | BI | Task 7. SUMMARIZE AFTER PREPARATION........
+2026-07-15 18:27:29 | INFO | BI | Numeric summary: customers prepared
+2026-07-15 18:27:29 | INFO | BI | 
+       CustomerID  RewardPoints
+count      201.00        201.00
+mean      1099.03     213166.62
+std         58.12     115975.15
+min       1000.00       2296.00
+25%       1049.00     115318.00
+50%       1099.00     214088.00
+75%       1149.00     313194.00
+max       1199.00     461774.00
+2026-07-15 18:27:29 | INFO | BI | Numeric summary: products prepared
+2026-07-15 18:27:29 | INFO | BI | 
+       ProductID  UnitPrice  SupplierID
+count     100.00     100.00      100.00
+mean     2049.50     507.77     1056.76
+std        29.01     290.80      454.48
+min      2000.00      13.51     1001.00
+25%      2024.75     255.53     1006.00
+50%      2049.50     496.39     1011.50
+75%      2074.25     771.28     1015.00
+max      2099.00     976.44     5555.00
+2026-07-15 18:27:29 | INFO | BI | Numeric summary: sales prepared
+2026-07-15 18:27:29 | INFO | BI | 
+       TransactionID  CustomerID  ProductID  StoreID  CampaignID  SaleAmount
+count        2392.00     2392.00    2392.00  2392.00     2199.00     2392.00
+mean         1199.03     1086.63    2049.09   402.53        1.46     1535.70
+std           692.43       57.30      28.68     1.12        1.12     1270.88
+min             1.00     1000.00    2000.00   401.00        0.00        0.00
+25%           600.75     1034.00    2023.00   402.00        0.00      593.15
+50%          1198.50     1079.00    2046.00   403.00        1.00     1240.37
+75%          1798.25     1131.25    2074.00   404.00        2.00     1923.22
+max          2400.00     1199.00    2099.00   404.00        3.00     4993.88
+2026-07-15 18:27:29 | INFO | BI | Task 8. SAVE PREPARED DATASETS........
+2026-07-15 18:27:29 | INFO | BI | Saved customers
+2026-07-15 18:27:29 | INFO | BI |   Rows: 201
+2026-07-15 18:27:29 | INFO | BI |   Path: data\prepared\customers_data_prepared.csv
+2026-07-15 18:27:29 | INFO | BI | Saved products
+2026-07-15 18:27:29 | INFO | BI |   Rows: 100
+2026-07-15 18:27:29 | INFO | BI |   Path: data\prepared\products_data_prepared.csv
+2026-07-15 18:27:29 | INFO | BI | Saved sales
+2026-07-15 18:27:29 | INFO | BI |   Rows: 2392
+2026-07-15 18:27:29 | INFO | BI |   Path: data\prepared\sales_data_prepared.csv
+2026-07-15 18:27:29 | INFO | BI | Workflow complete
+2026-07-15 18:27:29 | INFO | BI | ========================
+2026-07-15 18:27:29 | INFO | BI | Executed successfully!
+2026-07-15 18:27:29 | INFO | BI | ========================
