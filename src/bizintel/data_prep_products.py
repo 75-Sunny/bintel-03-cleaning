@@ -1,4 +1,4 @@
-"""data_prep_wmiller.py - example.
+"""data_prep_case.py - example.
 
 An example of cleaning and preparing raw smart sales data.
 Cleaning and preparation is a critical step in any BI workflow.
@@ -44,7 +44,7 @@ Output:
 
 Terminal command to run this file from the root project folder:
 
-uv run python -m bizintel.data_prep_wmiller
+uv run python -m bizintel.data_prep_case
 
 OBS:
   Don't edit this file - it should remain a working example.
