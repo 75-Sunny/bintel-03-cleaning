@@ -1939,3 +1939,157 @@ max       1199.00     461774.00
 2026-07-16 21:42:58 | INFO | BI | ========================
 2026-07-16 21:42:58 | INFO | BI | Executed successfully!
 2026-07-16 21:42:58 | INFO | BI | ========================
+2026-07-16 22:06:57 | INFO | BI | === RUN START ===
+2026-07-16 22:06:57 | INFO | BI | project=BI
+2026-07-16 22:06:57 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-16 22:06:57 | INFO | BI | python=3.14.6
+2026-07-16 22:06:57 | INFO | BI | os=Windows 11
+2026-07-16 22:06:57 | INFO | BI | shell=powershell
+2026-07-16 22:06:57 | INFO | BI | cwd=.
+2026-07-16 22:06:57 | INFO | BI | github_actions=False
+2026-07-16 22:06:57 | INFO | BI | ========================
+2026-07-16 22:06:57 | INFO | BI | START main()
+2026-07-16 22:06:57 | INFO | BI | ========================
+2026-07-16 22:06:57 | INFO | BI | Prepared data:  = data\prepared
+2026-07-16 22:06:57 | INFO | BI | Customers: = data\prepared\customers_data_prepared.csv
+2026-07-16 22:06:57 | INFO | BI | Products:  = data\prepared\products_data_prepared.csv
+2026-07-16 22:06:57 | INFO | BI | Sales:     = data\prepared\sales_data_prepared.csv
+2026-07-16 22:06:57 | INFO | BI | CALL a function to load each dataset.............
+2026-07-16 22:06:57 | INFO | BI | Loading customers from data\prepared\customers_data_prepared.csv
+2026-07-16 22:06:57 | INFO | BI | Loaded: 201 rows, 6 columns
+2026-07-16 22:06:57 | INFO | BI | Loading products from data\prepared\products_data_prepared.csv
+2026-07-16 22:06:57 | INFO | BI | Loaded: 100 rows, 6 columns
+2026-07-16 22:06:57 | INFO | BI | Loading sales from data\prepared\sales_data_prepared.csv
+2026-07-16 22:06:57 | INFO | BI | Loaded: 2391 rows, 9 columns
+2026-07-16 22:06:57 | INFO | BI | CALL a function to get sales by region........
+2026-07-16 22:06:57 | INFO | BI | Aggregating sales by region
+2026-07-16 22:06:57 | INFO | BI |   Top region: East ($1,234,686.51)
+2026-07-16 22:06:57 | INFO | BI | Returning DataFrame with total sales by region
+2026-07-16 22:06:57 | INFO | BI | CALL a function to plot sales by region........
+2026-07-16 22:06:57 | INFO | BI | Creating chart: Total Sales by Region
+2026-07-16 22:06:57 | INFO | BI | CALL a function to get sales by product category........
+2026-07-16 22:06:57 | INFO | BI | Aggregating Payment and Rewards transactions by category
+2026-07-16 22:06:57 | INFO | BI | Transaction counts by category calculated successfully.
+2026-07-16 22:06:57 | INFO | BI | CALL a function to plot sales by product category........
+2026-07-16 22:06:57 | INFO | BI | Creating chart: Payment vs Rewards Transactions by Category
+2026-07-16 22:06:58 | INFO | BI | CALL a function to summarize the datasets........
+2026-07-16 22:06:58 | INFO | BI | ========================
+2026-07-16 22:06:58 | INFO | BI | SUMMARY
+2026-07-16 22:06:58 | INFO | BI | ========================
+2026-07-16 22:06:58 | INFO | BI | Customers:  201 rows, 6 columns
+2026-07-16 22:06:58 | INFO | BI | Products:   100 rows, 6 columns
+2026-07-16 22:06:58 | INFO | BI | Sales:      2391 rows, 9 columns
+2026-07-16 22:06:58 | INFO | BI | ========================
+2026-07-16 22:06:58 | INFO | BI | ANALYST NOTES:
+2026-07-16 22:06:58 | INFO | BI | Note any data quality issues.
+2026-07-16 22:06:58 | INFO | BI | We will clean data later.
+2026-07-16 22:06:58 | INFO | BI | ========================
+2026-07-16 22:06:58 | INFO | BI | CALL a function to show charts........
+2026-07-16 22:21:49 | INFO | BI | Workflow complete
+2026-07-16 22:21:49 | INFO | BI | CLOSE chart windows to continue.
+2026-07-16 22:21:49 | INFO | BI | Terminate this process with CTRL+c as needed.
+2026-07-16 22:21:49 | INFO | BI | ========================
+2026-07-16 22:21:49 | INFO | BI | Executed successfully!
+2026-07-16 22:21:49 | INFO | BI | ========================
+2026-07-16 22:23:01 | INFO | BI | === RUN START ===
+2026-07-16 22:23:01 | INFO | BI | project=BI
+2026-07-16 22:23:01 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-16 22:23:01 | INFO | BI | python=3.14.6
+2026-07-16 22:23:01 | INFO | BI | os=Windows 11
+2026-07-16 22:23:01 | INFO | BI | shell=powershell
+2026-07-16 22:23:01 | INFO | BI | cwd=.
+2026-07-16 22:23:01 | INFO | BI | github_actions=False
+2026-07-16 22:23:01 | INFO | BI | ========================
+2026-07-16 22:23:01 | INFO | BI | START main()
+2026-07-16 22:23:01 | INFO | BI | ========================
+2026-07-16 22:23:01 | INFO | BI | Prepared data:  = data\prepared
+2026-07-16 22:23:01 | INFO | BI | Customers: = data\prepared\customers_data_prepared.csv
+2026-07-16 22:23:01 | INFO | BI | Products:  = data\prepared\products_data_prepared.csv
+2026-07-16 22:23:01 | INFO | BI | Sales:     = data\prepared\sales_data_prepared.csv
+2026-07-16 22:23:01 | INFO | BI | CALL a function to load each dataset.............
+2026-07-16 22:23:01 | INFO | BI | Loading customers from data\prepared\customers_data_prepared.csv
+2026-07-16 22:23:01 | INFO | BI | Loaded: 201 rows, 6 columns
+2026-07-16 22:23:01 | INFO | BI | Loading products from data\prepared\products_data_prepared.csv
+2026-07-16 22:23:01 | INFO | BI | Loaded: 100 rows, 6 columns
+2026-07-16 22:23:01 | INFO | BI | Loading sales from data\prepared\sales_data_prepared.csv
+2026-07-16 22:23:01 | INFO | BI | Loaded: 2391 rows, 9 columns
+2026-07-16 22:23:01 | INFO | BI | CALL a function to get sales by region........
+2026-07-16 22:23:01 | INFO | BI | Aggregating sales by region
+2026-07-16 22:23:01 | INFO | BI |   Top region: East ($1,234,686.51)
+2026-07-16 22:23:01 | INFO | BI | Returning DataFrame with total sales by region
+2026-07-16 22:23:01 | INFO | BI | CALL a function to plot sales by region........
+2026-07-16 22:23:01 | INFO | BI | Creating chart: Total Sales by Region
+2026-07-16 22:23:02 | INFO | BI | CALL a function to get sales by product category........
+2026-07-16 22:23:02 | INFO | BI | Aggregating Payment and Rewards transactions by category
+2026-07-16 22:23:02 | INFO | BI | Transaction counts by category calculated successfully.
+2026-07-16 22:23:02 | INFO | BI | CALL a function to plot sales by product category........
+2026-07-16 22:23:02 | INFO | BI | CALL a function to summarize the datasets........
+2026-07-16 22:23:02 | INFO | BI | ========================
+2026-07-16 22:23:02 | INFO | BI | SUMMARY
+2026-07-16 22:23:02 | INFO | BI | ========================
+2026-07-16 22:23:02 | INFO | BI | Customers:  201 rows, 6 columns
+2026-07-16 22:23:02 | INFO | BI | Products:   100 rows, 6 columns
+2026-07-16 22:23:02 | INFO | BI | Sales:      2391 rows, 9 columns
+2026-07-16 22:23:02 | INFO | BI | ========================
+2026-07-16 22:23:02 | INFO | BI | ANALYST NOTES:
+2026-07-16 22:23:02 | INFO | BI | Note any data quality issues.
+2026-07-16 22:23:02 | INFO | BI | We will clean data later.
+2026-07-16 22:23:02 | INFO | BI | ========================
+2026-07-16 22:23:02 | INFO | BI | CALL a function to show charts........
+2026-07-16 22:31:29 | INFO | BI | Workflow complete
+2026-07-16 22:31:29 | INFO | BI | CLOSE chart windows to continue.
+2026-07-16 22:31:29 | INFO | BI | Terminate this process with CTRL+c as needed.
+2026-07-16 22:31:29 | INFO | BI | ========================
+2026-07-16 22:31:29 | INFO | BI | Executed successfully!
+2026-07-16 22:31:29 | INFO | BI | ========================
+2026-07-16 23:17:55 | INFO | BI | === RUN START ===
+2026-07-16 23:17:55 | INFO | BI | project=BI
+2026-07-16 23:17:55 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-16 23:17:55 | INFO | BI | python=3.14.6
+2026-07-16 23:17:55 | INFO | BI | os=Windows 11
+2026-07-16 23:17:55 | INFO | BI | shell=powershell
+2026-07-16 23:17:55 | INFO | BI | cwd=.
+2026-07-16 23:17:55 | INFO | BI | github_actions=False
+2026-07-16 23:17:55 | INFO | BI | ========================
+2026-07-16 23:17:55 | INFO | BI | START main()
+2026-07-16 23:17:55 | INFO | BI | ========================
+2026-07-16 23:17:55 | INFO | BI | Prepared data:  = data\prepared
+2026-07-16 23:17:55 | INFO | BI | Customers: = data\prepared\customers_data_prepared.csv
+2026-07-16 23:17:55 | INFO | BI | Products:  = data\prepared\products_data_prepared.csv
+2026-07-16 23:17:55 | INFO | BI | Sales:     = data\prepared\sales_data_prepared.csv
+2026-07-16 23:17:55 | INFO | BI | CALL a function to load each dataset.............
+2026-07-16 23:17:55 | INFO | BI | Loading customers from data\prepared\customers_data_prepared.csv
+2026-07-16 23:17:55 | INFO | BI | Loaded: 201 rows, 6 columns
+2026-07-16 23:17:55 | INFO | BI | Loading products from data\prepared\products_data_prepared.csv
+2026-07-16 23:17:55 | INFO | BI | Loaded: 100 rows, 6 columns
+2026-07-16 23:17:55 | INFO | BI | Loading sales from data\prepared\sales_data_prepared.csv
+2026-07-16 23:17:55 | INFO | BI | Loaded: 2391 rows, 9 columns
+2026-07-16 23:17:55 | INFO | BI | CALL a function to get sales by region........
+2026-07-16 23:17:55 | INFO | BI | Aggregating sales by region
+2026-07-16 23:17:55 | INFO | BI |   Top region: East ($1,234,686.51)
+2026-07-16 23:17:55 | INFO | BI | Returning DataFrame with total sales by region
+2026-07-16 23:17:55 | INFO | BI | CALL a function to plot sales by region........
+2026-07-16 23:17:55 | INFO | BI | Creating chart: Total Sales by Region
+2026-07-16 23:17:56 | INFO | BI | CALL a function to get sales by product category........
+2026-07-16 23:17:56 | INFO | BI | Aggregating Payment and Rewards transactions by category
+2026-07-16 23:17:56 | INFO | BI | Transaction counts by category calculated successfully.
+2026-07-16 23:17:56 | INFO | BI | CALL a function to plot sales by product category........
+2026-07-16 23:17:56 | INFO | BI | CALL a function to summarize the datasets........
+2026-07-16 23:17:56 | INFO | BI | ========================
+2026-07-16 23:17:56 | INFO | BI | SUMMARY
+2026-07-16 23:17:56 | INFO | BI | ========================
+2026-07-16 23:17:56 | INFO | BI | Customers:  201 rows, 6 columns
+2026-07-16 23:17:56 | INFO | BI | Products:   100 rows, 6 columns
+2026-07-16 23:17:56 | INFO | BI | Sales:      2391 rows, 9 columns
+2026-07-16 23:17:56 | INFO | BI | ========================
+2026-07-16 23:17:56 | INFO | BI | ANALYST NOTES:
+2026-07-16 23:17:56 | INFO | BI | Note any data quality issues.
+2026-07-16 23:17:56 | INFO | BI | We will clean data later.
+2026-07-16 23:17:56 | INFO | BI | ========================
+2026-07-16 23:17:56 | INFO | BI | CALL a function to show charts........
+2026-07-16 23:20:28 | INFO | BI | Workflow complete
+2026-07-16 23:20:28 | INFO | BI | CLOSE chart windows to continue.
+2026-07-16 23:20:28 | INFO | BI | Terminate this process with CTRL+c as needed.
+2026-07-16 23:20:28 | INFO | BI | ========================
+2026-07-16 23:20:28 | INFO | BI | Executed successfully!
+2026-07-16 23:20:28 | INFO | BI | ========================

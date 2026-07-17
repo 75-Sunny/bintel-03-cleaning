@@ -287,15 +287,17 @@ def main() -> None:
     df_category = sales_by_category(df_products, df_sales)
 
     LOG.info("CALL a function to plot sales by product category........")
-    plot_bar(
-        df=df_category,
-        x="Category",
-        y="SaleCount",
-        title="Payment vs Rewards Transactions by Category",
-        xlabel="Category",
-        ylabel="Number of Sales",
-        palette="Greens_d",
+    pivot_df = df_category.pivot(
+        index="Category", columns="SaleType", values="SaleCount"
     )
+
+    pivot_df.plot(kind="bar", figsize=(10, 6))
+
+    plt.title("Payment vs Rewards Transactions by Category")
+    plt.xlabel("Category")
+    plt.ylabel("Number of Sales")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
 
     LOG.info("CALL a function to summarize the datasets........")
     summarize(df_customers, df_products, df_sales)
