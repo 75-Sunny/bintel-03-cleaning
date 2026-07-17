@@ -1,4 +1,4 @@
-"""app_case.py - example.
+"""app_wmiller.py - example.
 
 An example of loading and visualizing raw business data.
 
@@ -17,7 +17,7 @@ Data Source:
 
 Terminal command to run this file from the root project folder:
 
-uv run python -m bizintel.app_case
+uv run python -m bizintel.app_wmiller
 
 OBS:
   Don't edit this file - it should remain a working example.
@@ -144,7 +144,7 @@ def sales_by_category(
     df_products: pd.DataFrame,
     df_sales: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Aggregate total sales amount by product category.
+    """Aggregate the number of Payment and Rewards transactions by product category..
 
     WHY: Product category is another key business dimension.
     Understanding which categories drive revenue helps prioritize
@@ -157,13 +157,10 @@ def sales_by_category(
     Returns:
         DataFrame with Category and SaleAmount columns, sorted by SaleAmount.
     """
-    LOG.info("Aggregating sales by product category")
+    LOG.info("Aggregating Payment and Rewards transactions by category")
 
     # Make a copy of the sales DataFrame to avoid modifying the original
     df_sales = df_sales.copy()
-
-    # Convert the SaleAmount column to numeric, coercing errors to NaN ("not a number")
-    df_sales["SaleAmount"] = pd.to_numeric(df_sales["SaleAmount"], errors="coerce")
 
     # Merge the sales DataFrame with the products DataFrame on ProductID
     # to get the Category for each sale (like a "left join" in SQL)
@@ -177,13 +174,8 @@ def sales_by_category(
     # Group the merged DataFrame by Category and sum the SaleAmount for each category.
     # This returns a Series (a single column of values, one per category).
     # We cast to Series because we are grouping a single column.
-    grouped: pd.Series = pd.Series(df_merged.groupby("Category")["SaleAmount"].sum())
-
-    # Reset the index to turn the Series back into a DataFrame with two columns:
-    # Category and SaleAmount.
-    # Then sort by SaleAmount descending so the highest-revenue category appears first.
-    df_category: pd.DataFrame = grouped.reset_index().sort_values(
-        "SaleAmount", ascending=False
+    df_category = (
+        df_merged.groupby(["Category", "SaleType"]).size().reset_index(name="SaleCount")
     )
 
     # Use the built-in dataframe iloc (index location) method
@@ -191,18 +183,8 @@ def sales_by_category(
     # as a string.
     # In Python, we start counting with 0 (no offset from the beginning of the list),
     # so the first row is at index 0.
-    top_category: str = str(df_category.iloc[0]["Category"])
 
-    # Use the built-in dataframe iloc (index location) method
-    # to get the first row of the sorted DataFrame
-    # (the category with the highest sales)
-    # as a float.
-    top_sales: float = float(df_category.iloc[0]["SaleAmount"])
-
-    # Log the top category and its total sales amount for quick reference
-    # Using handy dandy f-strings (formatted string literals).
-    # Format the sales amount as currency with commas and two floating decimal places.
-    LOG.info(f"  Top category: {top_category} (${top_sales:,.2f})")
+    LOG.info("Transaction counts by category calculated successfully.")
 
     return df_category
 
@@ -308,10 +290,10 @@ def main() -> None:
     plot_bar(
         df=df_category,
         x="Category",
-        y="SaleAmount",
-        title="Total Sales by Product Category",
+        y="SaleCount",
+        title="Payment vs Rewards Transactions by Category",
         xlabel="Category",
-        ylabel="Total Sales Amount ($)",
+        ylabel="Number of Sales",
         palette="Greens_d",
     )
 
