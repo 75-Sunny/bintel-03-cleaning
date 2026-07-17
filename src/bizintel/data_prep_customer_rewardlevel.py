@@ -202,7 +202,6 @@ def prepare_customers(df: pd.DataFrame) -> pd.DataFrame:
     # Log the invalid rows for review.
     LOG.info(f"  Invalid RewardLevel values found: {invalid_rows.shape[0]} rows")
     updated_count = invalid_rows.shape[0]
-    LOG.info(f"  Updated {updated_count} RewardLevel value(s)")
 
     # Identify rows where RewardLevel is not one of the valid values.
     LOG.info("Customers Prep 2. Remove duplicate rows")

@@ -1614,3 +1614,172 @@ max          2400.00     1199.00    2099.00   404.00        3.00     4993.88
 2026-07-16 16:06:00 | INFO | BI | ========================
 2026-07-16 16:06:00 | INFO | BI | Executed successfully!
 2026-07-16 16:06:00 | INFO | BI | ========================
+2026-07-16 21:00:16 | INFO | BI | === RUN START ===
+2026-07-16 21:00:16 | INFO | BI | project=BI
+2026-07-16 21:00:16 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-16 21:00:16 | INFO | BI | python=3.14.6
+2026-07-16 21:00:16 | INFO | BI | os=Windows 11
+2026-07-16 21:00:16 | INFO | BI | shell=powershell
+2026-07-16 21:00:16 | INFO | BI | cwd=.
+2026-07-16 21:00:16 | INFO | BI | github_actions=False
+2026-07-16 21:00:16 | INFO | BI | ========================
+2026-07-16 21:00:16 | INFO | BI | START main()
+2026-07-16 21:00:16 | INFO | BI | ========================
+2026-07-16 21:00:16 | INFO | BI | Raw data:      = data\raw
+2026-07-16 21:00:16 | INFO | BI | Prepared data: = data\prepared
+2026-07-16 21:00:16 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-16 21:00:16 | INFO | BI | Loading customers from data\raw\customers_data.csv
+2026-07-16 21:00:16 | INFO | BI | Loaded: 203 rows, 6 columns
+2026-07-16 21:00:16 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-16 21:00:16 | INFO | BI | Inspecting customers
+2026-07-16 21:00:16 | INFO | BI |   Columns: ['CustomerID', 'Name', 'Region', 'JoinDate', 'RewardPoints', 'RewardLevel']
+2026-07-16 21:00:16 | INFO | BI |   Shape:   203 rows x 6 columns
+2026-07-16 21:00:16 | DEBUG | BI | 
+   CustomerID           Name   Region   JoinDate  RewardPoints RewardLevel
+0        1000   Robert Gomez     West  2/25/2024        461774    Platinum
+1        1001     John Silva     East  12/1/2020        361974    Platinum
+2        1002  Mark Marshall  Central   8/8/2020        238795        gold
+3        1002  Mark Marshall  Central   8/8/2020        238795        gold
+4        1003  David Brennan    North  5/21/2020        358344         NaN
+
+2026-07-16 21:00:16 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-16 21:00:16 | INFO | BI | Quality check: customers
+2026-07-16 21:00:16 | INFO | BI |   Total missing values: 4
+2026-07-16 21:00:16 | WARNING | BI |   Missing by column:
+RewardLevel    4
+dtype: int64
+2026-07-16 21:00:16 | INFO | BI |   Duplicate rows: 2
+2026-07-16 21:00:16 | WARNING | BI |   2 duplicate row(s) found - review before loading to warehouse
+2026-07-16 21:00:16 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-16 21:00:16 | INFO | BI | Numeric summary: customers
+2026-07-16 21:00:16 | INFO | BI | 
+       CustomerID  RewardPoints
+count      203.00        203.00
+mean      1098.09     213635.66
+std         58.59     115516.52
+min       1000.00       2296.00
+25%       1047.50     116505.50
+50%       1098.00     215442.00
+75%       1148.50     312928.50
+max       1199.00     461774.00
+2026-07-16 21:00:16 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-16 21:00:16 | INFO | BI | Preparing customers data
+2026-07-16 21:00:16 | INFO | BI | Customers Prep 1. Normalize Region values
+2026-07-16 21:00:16 | INFO | BI |   Regions after normalization: ['Central', 'East', 'North', 'South', 'South-West', 'West']
+2026-07-16 21:00:16 | INFO | BI | Customers Prep 2. Normalize RewardLevel values
+2026-07-16 21:00:16 | INFO | BI |   Updated 52 RewardLevel value(s)
+2026-07-16 21:00:16 | INFO | BI |   Invalid RewardLevel values found: 52 rows
+2026-07-16 21:00:16 | INFO | BI |   Updated 52 RewardLevel value(s)
+2026-07-16 21:00:16 | INFO | BI | Customers Prep 2. Remove duplicate rows
+2026-07-16 21:00:16 | INFO | BI |   Rows before: 203
+2026-07-16 21:00:16 | INFO | BI |   Rows after: 201
+2026-07-16 21:00:16 | INFO | BI |   Removed 2 duplicate row(s)
+2026-07-16 21:00:16 | INFO | BI |   Customers prepared: 201 rows
+2026-07-16 21:00:16 | INFO | BI | Task 6. CHECK QUALITY AFTER PREPARATION........
+2026-07-16 21:00:16 | INFO | BI | Quality check: customers prepared
+2026-07-16 21:00:16 | INFO | BI |   Total missing values: 0
+2026-07-16 21:00:16 | INFO | BI |   Duplicate rows: 0
+2026-07-16 21:00:16 | INFO | BI | Task 7. SUMMARIZE AFTER PREPARATION........
+2026-07-16 21:00:16 | INFO | BI | Numeric summary: customers prepared
+2026-07-16 21:00:16 | INFO | BI | 
+       CustomerID  RewardPoints
+count      201.00        201.00
+mean      1099.03     213166.62
+std         58.12     115975.15
+min       1000.00       2296.00
+25%       1049.00     115318.00
+50%       1099.00     214088.00
+75%       1149.00     313194.00
+max       1199.00     461774.00
+2026-07-16 21:00:16 | INFO | BI | Task 8. SAVE PREPARED DATASETS........
+2026-07-16 21:00:16 | INFO | BI | Saved customers
+2026-07-16 21:00:16 | INFO | BI |   Rows: 201
+2026-07-16 21:00:16 | INFO | BI |   Path: data\prepared\customers_data_prepared_rewardlevel.csv
+2026-07-16 21:00:16 | INFO | BI | Workflow complete
+2026-07-16 21:00:16 | INFO | BI | ========================
+2026-07-16 21:00:16 | INFO | BI | Executed successfully!
+2026-07-16 21:00:16 | INFO | BI | ========================
+2026-07-16 21:06:50 | INFO | BI | === RUN START ===
+2026-07-16 21:06:50 | INFO | BI | project=BI
+2026-07-16 21:06:50 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-16 21:06:50 | INFO | BI | python=3.14.6
+2026-07-16 21:06:50 | INFO | BI | os=Windows 11
+2026-07-16 21:06:50 | INFO | BI | shell=powershell
+2026-07-16 21:06:50 | INFO | BI | cwd=.
+2026-07-16 21:06:50 | INFO | BI | github_actions=False
+2026-07-16 21:06:50 | INFO | BI | ========================
+2026-07-16 21:06:50 | INFO | BI | START main()
+2026-07-16 21:06:50 | INFO | BI | ========================
+2026-07-16 21:06:50 | INFO | BI | Raw data:      = data\raw
+2026-07-16 21:06:50 | INFO | BI | Prepared data: = data\prepared
+2026-07-16 21:06:50 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-16 21:06:50 | INFO | BI | Loading customers from data\raw\customers_data.csv
+2026-07-16 21:06:50 | INFO | BI | Loaded: 203 rows, 6 columns
+2026-07-16 21:06:50 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-16 21:06:50 | INFO | BI | Inspecting customers
+2026-07-16 21:06:50 | INFO | BI |   Columns: ['CustomerID', 'Name', 'Region', 'JoinDate', 'RewardPoints', 'RewardLevel']
+2026-07-16 21:06:50 | INFO | BI |   Shape:   203 rows x 6 columns
+2026-07-16 21:06:50 | DEBUG | BI | 
+   CustomerID           Name   Region   JoinDate  RewardPoints RewardLevel
+0        1000   Robert Gomez     West  2/25/2024        461774    Platinum
+1        1001     John Silva     East  12/1/2020        361974    Platinum
+2        1002  Mark Marshall  Central   8/8/2020        238795        gold
+3        1002  Mark Marshall  Central   8/8/2020        238795        gold
+4        1003  David Brennan    North  5/21/2020        358344         NaN
+
+2026-07-16 21:06:50 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-16 21:06:50 | INFO | BI | Quality check: customers
+2026-07-16 21:06:50 | INFO | BI |   Total missing values: 4
+2026-07-16 21:06:50 | WARNING | BI |   Missing by column:
+RewardLevel    4
+dtype: int64
+2026-07-16 21:06:50 | INFO | BI |   Duplicate rows: 2
+2026-07-16 21:06:50 | WARNING | BI |   2 duplicate row(s) found - review before loading to warehouse
+2026-07-16 21:06:50 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-16 21:06:50 | INFO | BI | Numeric summary: customers
+2026-07-16 21:06:50 | INFO | BI | 
+       CustomerID  RewardPoints
+count      203.00        203.00
+mean      1098.09     213635.66
+std         58.59     115516.52
+min       1000.00       2296.00
+25%       1047.50     116505.50
+50%       1098.00     215442.00
+75%       1148.50     312928.50
+max       1199.00     461774.00
+2026-07-16 21:06:50 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-16 21:06:50 | INFO | BI | Preparing customers data
+2026-07-16 21:06:50 | INFO | BI | Customers Prep 1. Normalize Region values
+2026-07-16 21:06:50 | INFO | BI |   Regions after normalization: ['Central', 'East', 'North', 'South', 'South-West', 'West']
+2026-07-16 21:06:50 | INFO | BI | Customers Prep 2. Normalize RewardLevel values
+2026-07-16 21:06:50 | INFO | BI |   Updated 52 RewardLevel value(s)
+2026-07-16 21:06:50 | INFO | BI |   Invalid RewardLevel values found: 52 rows
+2026-07-16 21:06:50 | INFO | BI | Customers Prep 2. Remove duplicate rows
+2026-07-16 21:06:50 | INFO | BI |   Rows before: 203
+2026-07-16 21:06:50 | INFO | BI |   Rows after: 201
+2026-07-16 21:06:50 | INFO | BI |   Removed 2 duplicate row(s)
+2026-07-16 21:06:50 | INFO | BI |   Customers prepared: 201 rows
+2026-07-16 21:06:50 | INFO | BI | Task 6. CHECK QUALITY AFTER PREPARATION........
+2026-07-16 21:06:50 | INFO | BI | Quality check: customers prepared
+2026-07-16 21:06:50 | INFO | BI |   Total missing values: 0
+2026-07-16 21:06:50 | INFO | BI |   Duplicate rows: 0
+2026-07-16 21:06:50 | INFO | BI | Task 7. SUMMARIZE AFTER PREPARATION........
+2026-07-16 21:06:50 | INFO | BI | Numeric summary: customers prepared
+2026-07-16 21:06:50 | INFO | BI | 
+       CustomerID  RewardPoints
+count      201.00        201.00
+mean      1099.03     213166.62
+std         58.12     115975.15
+min       1000.00       2296.00
+25%       1049.00     115318.00
+50%       1099.00     214088.00
+75%       1149.00     313194.00
+max       1199.00     461774.00
+2026-07-16 21:06:50 | INFO | BI | Task 8. SAVE PREPARED DATASETS........
+2026-07-16 21:06:50 | INFO | BI | Saved customers
+2026-07-16 21:06:50 | INFO | BI |   Rows: 201
+2026-07-16 21:06:50 | INFO | BI |   Path: data\prepared\customers_data_prepared_rewardlevel.csv
+2026-07-16 21:06:50 | INFO | BI | Workflow complete
+2026-07-16 21:06:50 | INFO | BI | ========================
+2026-07-16 21:06:50 | INFO | BI | Executed successfully!
+2026-07-16 21:06:50 | INFO | BI | ========================
