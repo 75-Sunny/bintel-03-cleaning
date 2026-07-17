@@ -58,10 +58,11 @@ Include:
   - products_data_prepared.csv had 2 rows deleted
   - sales_data_prepared.csv had 8 rows deleted
   - customers_data_prepared_rewardlevel.csv had 52 values updated
-- What the data looked like before and after (use screenshots or log output)
-- ![alt text](duplicate.png)
-- ![alt text](customerreward.png)
-- Whether any cleaning decisions were judgment calls and why you made them
+- What the data looked like before and after
+![Before Cleaning](images/duplicate.png)
+![Before Cleaning](images/customer_rewardlevel.png)
+
+
 
 ## Phase 5. Custom Project
 
@@ -71,4 +72,4 @@ For my Custom Project,
 I used the cleaned data and created a new visualization using a new column added 'SaleType' which used Payment or Rewards as a value.
 
 I then went and created another visualization chart asking a new Business Question - Which product categories have the highest number of Payment or Rewards transactions?
-![alt text](PaymentRwards.png)
+![New Visual](images/paymentRward.png)
